@@ -68,7 +68,7 @@ pre {
 </head>
 <body>
 <div class="container" style="background: #fafafa; border: 1px solid #eee; margin: 2em; padding: .6em;">
-'.$body.'
+'.htmlspecialchars($body).'
 </div>
 </body>
 </html>';
@@ -101,13 +101,13 @@ pre {
 
         $message = '
 --simplesamlphp-'.$random_hash.'
-Content-Type: text/plain; charset="utf-8" 
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 '.strip_tags(html_entity_decode($this->body)).'
 
 --simplesamlphp-'.$random_hash.'
-Content-Type: text/html; charset="utf-8" 
+Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 '.$this->getHTML($this->body).'
